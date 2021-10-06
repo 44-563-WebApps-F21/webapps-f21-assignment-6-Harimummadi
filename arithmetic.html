@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+             Math Arithmetic Operatiom
+        </title>
+    </head>
+ 
+<body>
+
+
+<h2>Harihara Mummadi computes</h2>
+
+<form>
+    <label for="form1_base">Enter a Base </label>
+    <input type ="number" id="form1_base" name="form1_base" value=10> <br>
+
+    <label for="form1_exponent">Enter an exponent </label>
+    <input type ="number" id="form1_exponent" name="form1_exponent" autofocus> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<div id="result"></div>
+
+<script> 
+function powers() {
+            var result = "";
+
+            console.log("Getting form values")
+              let base = document.getElementById("form1_base").value
+              let exp = document.getElementById("form1_exponent").value
+        
+            for ( let i = 1; i <= exp; i++) 
+            {
+                result += Math.pow(base, i) + " ";
+            }
+            document.getElementById("result").innerHTML = "Powers of " + base + " are : " + result;
+
+
+        }
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+</script>
+
+</body>
+</html> 
