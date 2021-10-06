@@ -21,11 +21,14 @@
 
 
 <p id="result">This text will be replaced </p>
+<div class="container">
+    <img src="MalayanTiger.jpg" id="image" style= "height: 200px;" width="200px" onclick="newImage()"> 
+</div>
 
 <script> 
 var correct = 0;
 var wrong = 0;
-
+var usingImage=1;
 function processPhrase (){
     console.log("Getting form values")
     secret_phrase = document.getElementById("secret_phrase").value
@@ -42,6 +45,27 @@ function processPhrase (){
         out.innerHTML = "Wrong Count : " +wrong
     }
 }
+
+        function newImage() {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("image").src="MalayanTiger.jpg"
+                    usingImage=2;
+                    break;
+                case 2:
+                    document.getElementById("image").src = "urial.jpg"
+                    usingImage=3;
+                    break;
+                case 3:
+                    document.getElementById("image").src="maineCoon.jpg"
+                    usingImage=1;
+                    break;
+                default:
+                    usingImage = 1;
+                    document.getElementById("image").src = "MalayanTiger.jpg"
+                    break;
+            }
+        }
 </script>
 
 </body>
