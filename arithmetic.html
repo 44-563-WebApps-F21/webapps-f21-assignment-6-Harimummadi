@@ -23,11 +23,23 @@
 
 
 <div id="result"></div>
+<form>
+    <input type="radio" id="rg1_add" name="operation" onclick="processRadio(this.value)" value="plus">
+    <label for="rg1_add">+</label></br>
+
+    <input type="radio" id="rg1_sub" name="operation" onclick="processRadio(this.value)" value="minus">
+    <label for="rg1_sub">-</label></br>
+
+    <input type="radio" id="rg1_mul" name="operation" onclick="processRadio(this.value)" value="times">
+    <label for="rg1_mul">*</label></br>
+    <input type="radio" id="rg1_divi" name="operation" onclick="processRadio(this.value)" value="divide">
+    <label for="rg1_divi">/</label></br>
+</form>
+<div id="result1"></div>
 
 <script> 
-function powers() {
+         function powers() {
             var result = "";
-
             console.log("Getting form values")
               let base = document.getElementById("form1_base").value
               let exp = document.getElementById("form1_exponent").value
@@ -37,9 +49,29 @@ function powers() {
                 result += Math.pow(base, i) + " ";
             }
             document.getElementById("result").innerHTML = "Powers of " + base + " are : " + result;
-
-
-        }
+         }
+         function processRadio(operation) {
+            console.log("Operations")
+            let base = document.getElementById("form1_base").value
+            let exp = document.getElementById("form1_exponent").value
+            var result = 0;
+            if (operation == "plus") {             
+                result = (Number)(base) + (Number)(exp);
+                document.getElementById("result1").innerHTML = "Addition of the " + base + " and " + exp + " = " + result;
+            }
+            else if (operation == "minus") {              
+                result = base - exp;
+                document.getElementById("result1").innerHTML = "Subtraction of the " + base + " and " + exp + " = " + result;
+            }
+            else if (operation == "times") {               
+                result = Number(base) * Number(exp);
+                document.getElementById("result1").innerHTML = "Multiplication of the " + base + " and " + exp + " = " + result;
+            }
+            else if (operation == "divide") {              
+                result = (Number)(base) / (Number)(exp);
+                document.getElementById("result1").innerHTML = "Division of the " + base + " and " + exp + " = " + result;
+            }
+           }   
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
